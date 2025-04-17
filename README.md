@@ -27,7 +27,7 @@ When businesses hide their emails behind contact forms or directories, ClicknCon
 
 ## ⚙️ Project Structure
 
-\`\`\`
+```
 ClicknContact/
 ├── src/
 │   ├── tools/                  # MCP tool definitions (e.g., discoverBusinessEmail)
@@ -39,19 +39,19 @@ ClicknContact/
 ├── .gitignore
 ├── package.json
 └── tsconfig.json
-\`\`\`
+```
 
 ---
 
 ## 🛠️ Getting Started
 
-\`\`\`bash
+```bash
 git clone https://github.com/fabianwilliams/ClicknContact.git
 cd ClicknContact
 npm install
 npm run build
 npx @modelcontextprotocol/inspector node ./build/main.js
-\`\`\`
+```
 
 ☝️ This starts the MCP server and connects to [MCP Inspector](https://modelcontextprotocol.dev/tools/inspector), letting you test the `discoverBusinessEmail` tool interactively.
 
@@ -61,7 +61,7 @@ npx @modelcontextprotocol/inspector node ./build/main.js
 
 This tool accepts a list of website URLs and returns:
 
-\`\`\`ts
+```ts
 {
   url: string;
   best: string | null;       // best candidate email
@@ -69,7 +69,7 @@ This tool accepts a list of website URLs and returns:
   formDetected: boolean;
   formFields: string[];      // name/email/phone/etc.
 }
-\`\`\`
+```
 
 ---
 
@@ -77,9 +77,9 @@ This tool accepts a list of website URLs and returns:
 
 The tool is also available on NPM:
 
-\`\`\`bash
+```bash
 npm install @fabianwilliams/clickncontact
-\`\`\`
+```
 
 ---
 
