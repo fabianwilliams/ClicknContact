@@ -57,7 +57,7 @@ npx @modelcontextprotocol/inspector node ./build/main.js
 
 ---
 
-## 🧪 Tool: `discoverBusinessEmail`
+## 🧪 Tool: \`discoverBusinessEmail\`
 
 This tool accepts a list of website URLs and returns:
 
@@ -70,6 +70,35 @@ This tool accepts a list of website URLs and returns:
   formFields: string[];      // name/email/phone/etc.
 }
 ```
+
+---
+
+## 🧾 Input Format Example
+
+You can test the `discoverBusinessEmail` tool using either **JSON** or **Form** input in MCP Inspector.
+
+### ✅ JSON Mode
+
+```json
+{
+  "websiteUrls": [
+    "https://macona.org",
+    "https://openai.com"
+  ]
+}
+```
+
+This passes an array of strings to the tool, matching the expected \`inputSchema\`.
+
+### 📝 Form Mode
+
+Use the *Form* tab in MCP Inspector to enter each URL as a separate item in a repeating input field. The tool expects an array — so do **not** pass a single stringified object.
+
+### 🖼 Visual Example
+
+You can also view the difference here:
+
+![Input Formats: JSON vs Form](./assets/mcp-inspector-json-vs-form.png)
 
 ---
 
