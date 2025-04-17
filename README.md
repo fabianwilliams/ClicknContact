@@ -1,5 +1,5 @@
 ![npm](https://img.shields.io/npm/v/@fabianwilliams/clickncontact)
-![build](https://img.shields.io/github/actions/workflow/status/fabianwilliams/ClicknContact/main.yml)
+![build](https://img.shields.io/github/actions/workflow/status/fabianwilliams/ClicknContact/ci.yml)
 ![license](https://img.shields.io/npm/l/@fabianwilliams/clickncontact)
 
 # 📬 ClicknContact
