@@ -6,13 +6,13 @@
 
 **ClicknContact** is an open-source tool that discovers business contact emails from websites using scraping, form detection, and metadata extraction — powered by the [Model Context Protocol (MCP)](https://modelcontextprotocol.dev).
 
-When businesses hide their emails behind contact forms or directories, ClicknContact steps in — using automation to **scrape**, **detect**, and **surface** real inboxes, avoiding traps like `noreply@`.
+When businesses hide their emails behind contact forms or directories, ClicknContact steps in — using automation to **scrape**, **detect**, and **surface** real inboxes, avoiding traps like \`noreply@\`.
 
 ---
 
 ## 🔍 Features
 
-- 🔗 Extract emails from `mailto:` links and page content  
+- 🔗 Extract emails from \`mailto:\` links and page content  
 - 📄 Detect forms and identify field names for smart submission  
 - 🤖 Fully compatible with AI assistants and agent frameworks using MCP  
 - 🔁 Can be extended to simulate form submission and track responder behavior  
@@ -57,7 +57,36 @@ npm run build
 npx @modelcontextprotocol/inspector node ./build/main.js
 ```
 
-☝️ This starts the MCP server and connects to [MCP Inspector](https://modelcontextprotocol.dev/tools/inspector), letting you test the `discoverBusinessEmail` tool interactively.
+☝️ This starts the MCP server and connects to [MCP Inspector](https://modelcontextprotocol.dev/tools/inspector), letting you test the \`discoverBusinessEmail\` tool interactively.
+
+---
+
+## ⚙️ Usage Modes
+
+### ✅ Option 1: Global Install (for local dev or CLI use)
+
+```bash
+npm install -g @fabianwilliams/clickncontact
+clickncontact
+```
+This makes the tool globally available via the \`clickncontact\` command.
+
+### ✅ Option 2: Ephemeral (latest version every time)
+
+```json
+{
+  "tools": [
+    {
+      "name": "ClicknContact",
+      "command": "npx",
+      "args": ["-y", "@fabianwilliams/clickncontact"],
+      "transport": "stdio"
+    }
+  ]
+}
+```
+
+Perfect for **Claude Desktop** or cloud-based agents that should always use the latest published version.
 
 ---
 
@@ -79,7 +108,7 @@ This tool accepts a list of website URLs and returns:
 
 ## 🧾 Input Format Example
 
-You can test the `discoverBusinessEmail` tool using either **JSON** or **Form** input in MCP Inspector.
+You can test the \`discoverBusinessEmail\` tool using either **JSON** or **Form** input in MCP Inspector.
 
 ### ✅ JSON Mode
 
