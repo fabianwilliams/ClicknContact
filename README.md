@@ -1,3 +1,7 @@
+![npm](https://img.shields.io/npm/v/@fabianwilliams/clickncontact)
+![build](https://img.shields.io/github/actions/workflow/status/fabianwilliams/ClicknContact/main.yml)
+![license](https://img.shields.io/npm/l/@fabianwilliams/clickncontact)
+
 # 📬 ClicknContact
 
 **ClicknContact** is an open-source tool that discovers business contact emails from websites using scraping, form detection, and metadata extraction — powered by the [Model Context Protocol (MCP)](https://modelcontextprotocol.dev).

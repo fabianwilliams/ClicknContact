@@ -1,5 +1,5 @@
 {
-  "name": "clickncontact",
+  "name": "@fabianwilliams/clickncontact",
   "version": "1.0.0",
   "description": "Discovers business emails and contact form data from websites using scraping and the Model Context Protocol (MCP).",
   "type": "module",
@@ -11,7 +11,9 @@
     "start": "tsx src/main.ts",
     "postbuild": "chmod +x build/main.js"
   },
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "keywords": [
     "MCP",
     "email scraping",
@@ -24,6 +26,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/fabianwilliams/ClicknContact.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
