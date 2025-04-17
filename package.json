@@ -1,24 +1,38 @@
 {
-    "name": "clickncontact",
-    "version": "0.1.0",
-    "type": "module",
-    "description": "Discover business contact emails from websites and forms using scraping, automation, and MCP agents.",
-    "main": "src/server.ts",
-    "scripts": {
+  "name": "clickncontact",
+  "version": "1.0.0",
+  "description": "Discovers business emails and contact form data from websites using scraping and the Model Context Protocol (MCP).",
+  "type": "module",
+  "bin": {
+    "clickncontact": "./build/main.js"
+  },
+  "scripts": {
+    "build": "tsc",
     "start": "tsx src/main.ts",
-    "dev": "tsx watch src/main.ts",
-    "test": "vitest"
-    },
-    "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.9.0",
-        "cheerio": "^1.0.0-rc.12",
-        "node-fetch": "^3.3.2",
-        "zod": "^3.22.4"
-    },
-    "devDependencies": {
-        "@types/node": "^20.17.30",
-        "tsx": "^4.7.0",
-        "typescript": "^5.3.0",
-        "vitest": "^1.2.0"
-    }
+    "postbuild": "chmod +x build/main.js"
+  },
+  "files": ["build"],
+  "keywords": [
+    "MCP",
+    "email scraping",
+    "business contact discovery",
+    "Claude",
+    "ChatGPT",
+    "Model Context Protocol"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabianwilliams/ClicknContact.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
 }

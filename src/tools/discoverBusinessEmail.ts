@@ -1,22 +1,35 @@
-// src/tools/discoverBusinessEmail.ts
 import { z } from 'zod';
 import { scrapeEmailFromWebsite } from '../utils/scraper.js';
 
 export const inputSchema = z.object({
-  websiteUrl: z.string().url()
+  websiteUrls: z.array(z.string().url())
 });
 
 export const discoverBusinessEmail = {
   name: 'discoverBusinessEmail',
-  description: 'Attempts to discover a business email address from a given website URL.',
+  description: 'Find email addresses and form fields from a list of websites',
   inputSchema,
-  handler: async (input: z.infer<typeof inputSchema>) => {
-    const { websiteUrl } = input;
-    const email = await scrapeEmailFromWebsite(websiteUrl);
+  outputSchema: z.object({
+    content: z.array(
+      z.object({
+        type: z.literal("text"),
+        text: z.string()
+      })
+    )
+  }),
+  handler: async ({ websiteUrls }: z.infer<typeof inputSchema>) => {
+    const results = await Promise.all(
+      websiteUrls.map(async (url) => {
+        const result = await scrapeEmailFromWebsite(url);
+        return {
+          type: "text" as const,
+          text: JSON.stringify({ url, ...result })
+        };
+      })
+    );
+
     return {
-      email,
-      source: email ? 'website' : 'not found',
-      validated: !!email
+      content: results
     };
   }
 };

@@ -1,57 +1,91 @@
 # 📬 ClicknContact
 
-**ClicknContact** is an open-source tool that discovers business contact emails using website scraping, smart form submission, and intelligent agent workflows powered by [Model Context Protocol (MCP)](https://modelcontextprotocol.dev).
+**ClicknContact** is an open-source tool that discovers business contact emails from websites using scraping, form detection, and metadata extraction — powered by the [Model Context Protocol (MCP)](https://modelcontextprotocol.dev).
 
-When businesses hide their emails behind contact forms or trade organization directories, ClicknContact steps in — using automation to **scrape**, **submit**, and **surface** real inboxes, even detecting autoresponder behavior to avoid `noreply@` traps.
+When businesses hide their emails behind contact forms or directories, ClicknContact steps in — using automation to **scrape**, **detect**, and **surface** real inboxes, avoiding traps like `noreply@`.
 
 ---
 
 ## 🔍 Features
 
-- 🔎 Crawl websites to extract `mailto:` links and structured contact info
-- 🧠 Submit contact forms with traceable metadata to detect real responders
-- 📬 Parse reply headers to detect valid inboxes vs. automated responses
-- 🧰 Uses MCP-compatible agent tooling for modular, prompt-driven discovery
-- 📚 Logs findings in structured formats for downstream use
+- 🔗 Extract emails from `mailto:` links and page content  
+- 📄 Detect forms and identify field names for smart submission  
+- 🤖 Fully compatible with AI assistants and agent frameworks using MCP  
+- 🔁 Can be extended to simulate form submission and track responder behavior  
+- 🧩 MCP-native tooling, modular and ready to compose in workflows  
 
 ---
 
 ## 🚀 Use Cases
 
-- Lead enrichment and outreach automation
-- Escalation workflows where a real inbox is required
-- Research into contactability of businesses across sectors
-- Competitive intelligence and contact mapping
+- Lead enrichment and B2B outreach automation  
+- Discover real contact channels for customer service escalation  
+- Research contactability across business sectors  
+- Intelligent email validation pipelines  
+
+---
+
+## ⚙️ Project Structure
+
+\`\`\`
+ClicknContact/
+├── src/
+│   ├── tools/                  # MCP tool definitions (e.g., discoverBusinessEmail)
+│   ├── utils/                  # Scraper logic, fetchers, processors
+│   └── main.ts                 # MCP server setup and transport binding
+├── test/                       # Tests (coming soon)
+├── README.md
+├── LICENSE
+├── .gitignore
+├── package.json
+└── tsconfig.json
+\`\`\`
 
 ---
 
 ## 🛠️ Getting Started
 
-Clone the repo:
-
-```bash
+\`\`\`bash
 git clone https://github.com/fabianwilliams/ClicknContact.git
 cd ClicknContact
 npm install
-npm start
-```
+npm run build
+npx @modelcontextprotocol/inspector node ./build/main.js
+\`\`\`
 
-☝️ This project will expose an MCP tool named discoverBusinessEmail for use in AI workflows like Claude, ChatGPT, or any agent client that supports the Model Context Protocol.
+☝️ This starts the MCP server and connects to [MCP Inspector](https://modelcontextprotocol.dev/tools/inspector), letting you test the `discoverBusinessEmail` tool interactively.
 
-ClicknContact/
-├── src/
-│   ├── tools/                  # MCP tools (e.g., discoverBusinessEmail)
-│   ├── utils/                  # Scrapers, form parsers, response analyzers
-│   └── server.ts               # MCP server setup
-├── test/                       # Unit and integration tests
-├── README.md
-├── LICENSE
-├── .gitignore
-└── package.json
+---
+
+## 🧪 Tool: `discoverBusinessEmail`
+
+This tool accepts a list of website URLs and returns:
+
+\`\`\`ts
+{
+  url: string;
+  best: string | null;       // best candidate email
+  all: string[];             // all discovered emails
+  formDetected: boolean;
+  formFields: string[];      // name/email/phone/etc.
+}
+\`\`\`
+
+---
+
+## 📦 Publishing
+
+The tool is also available on NPM:
+
+\`\`\`bash
+npm install @fabianwilliams/clickncontact
+\`\`\`
+
+---
 
 ## 📜 License
 
-MIT — use it, fork it, improve it, PR it. Let's build together.
+MIT — use it, fork it, improve it, PR it. Let’s make smart contact discovery real.
 
 ---
 
@@ -61,8 +95,9 @@ We welcome contributors! Coming soon:
 
 - ✅ Issue templates  
 - 🧪 Test harness  
+- 🛠 Form submission engine  
 - 💬 Discussions  
 
-Open an issue or start a PR — and let’s make smart contact automation real.
+Open an issue or start a PR — and let’s build together.
 
-> Project by [@fabianwilliams](https://github.com/fabianwilliams) 💡
+> Built with ❤️ by [@fabianwilliams](https://github.com/fabianwilliams)
